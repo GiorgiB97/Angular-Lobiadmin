@@ -1,16 +1,16 @@
 <div id="create-rename-dialog">
     <div class="modal-header">
         <h3 class="modal-title" id="modal-title">
-            <span ng-if="vm.isRename"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Rename Folder</span>
-            <span ng-if="!vm.isRename"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;&nbsp;Create Folder</span>
+            <span ng-if="vm.isRename"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;{{'FILE_MANAGER.CREATE_RENAME.RENAME' | translate}}</span>
+            <span ng-if="!vm.isRename"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;&nbsp;{{'FILE_MANAGER.CREATE_RENAME.CREATE' | translate}}</span>
         </h3>
     </div>
     <div class="modal-body" id="modal-body">
         <!--<pre>{{vm.currentEntry | json}}</pre>-->
-        <input type="text" class="form-control" ng-model="vm.currentEntry.name" placeholder="Type folder name">
+        <input type="text" class="form-control" ng-model="vm.currentEntry.name" placeholder="{{'FILE_MANAGER.CREATE_RENAME.ENTER' | translate}}">
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
-        <button class="btn btn-default" type="button" ng-click="vm.cancel()">Cancel</button>
+        <button class="btn btn-primary" type="button" ng-click="vm.ok()">{{'FILE_MANAGER.GLOBAL.OK' | translate}}</button>
+        <button class="btn btn-default" type="button" ng-click="vm.cancel()">{{'FILE_MANAGER.GLOBAL.CANCEL' | translate}}</button>
     </div>
 </div>

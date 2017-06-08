@@ -130,27 +130,37 @@
       vm.allSelected = !vm.allSelected;
     }
 
-    function deleteSelectedFolders(){
-      var numOfFiles = vm.selectedFiles.length;
-      Lobibox.confirm({
-        title: 'Deleting '+numOfFiles+' files',
-        msg: 'Are you sure you want to delete selected files?',
-        callback: function(lobibox, btn){
-          if (btn === 'yes'){
-            // @todo Your code goes here
-            $scope.$apply(function(){
-              angular.forEach(vm.selectedFiles, function(file, ind){
-                vm.files.splice(vm.files.indexOf(file), 1);
-                vm.selectedFiles.splice(ind, 1);
+    function deleteSelectedFolders() {
+      $translate(['FILE_MANAGER.DELETE.DELETING', 'FILE_MANAGER.DELETE.FILES', 'FILE_MANAGER.DELETE.MSG_MULTI',
+        'FILE_MANAGER.DELETE.MSG_MULTI_AFTER', 'FILE_MANAGER.GLOBAL.YES', 'FILE_MANAGER.GLOBAL.NO']).then(function (translations) {
+        var numOfFiles = vm.selectedFiles.length;
+        Lobibox.confirm({
+          title: translations['FILE_MANAGER.DELETE.DELETING'] + numOfFiles + translations['FILE_MANAGER.DELETE.FILES'],
+          msg: translations['FILE_MANAGER.DELETE.MSG_MULTI'],
+          buttons: {
+            yes: {
+              text: translations['FILE_MANAGER.GLOBAL.YES']
+            },
+            no: {
+              text: translations['FILE_MANAGER.GLOBAL.NO']
+            }
+          },
+          callback: function (lobibox, btn) {
+            if (btn === 'yes') {
+              // @todo Your code goes here
+              $scope.$apply(function () {
+                angular.forEach(vm.selectedFiles, function (file, ind) {
+                  vm.files.splice(vm.files.indexOf(file), 1);
+                  vm.selectedFiles.splice(ind, 1);
+                });
+                resetSelection();
+                Lobibox.notify('success', {
+                  msg: numOfFiles + translations['FILE_MANAGER.DELETE.MSG_MULTI_AFTER']
+                })
               });
-              resetSelection();
-            });
-
-            Lobibox.notify('success', {
-              msg: numOfFiles+' files have been successfully deleted'
-            })
+            }
           }
-        }
+        })
       })
     }
 
@@ -313,15 +323,17 @@
     }
 
     function showCreateFolderDialog() {
+      $translate(['FILE_MANAGER.CREATE_RENAME.FOLDER','FILE_MANAGER.CREATE_RENAME.CREATE_MSG']).then(function (translations) {
       showCreateRenameDialog(null)
         .result.then(function (newFolder) {
         vm.files.push(newFolder);
         Lobibox.notify('success', {
-          msg: 'Folder "'+newFolder.name+'" has been successfully created'
+          msg: translations['FILE_MANAGER.CREATE_RENAME.FOLDER']+' "' + newFolder.name + '"' + translations['FILE_MANAGER.CREATE_RENAME.CREATE_MSG']
         });
       }, function () {
         $log.debug("reject")
       });
+      })
     }
 
     function showCreateRenameDialog(fileFolder) {
@@ -336,6 +348,7 @@
     }
 
     function showPreviewFileDialog(file) {
+      $translate(['FILE_MANAGER.GLOBAL.PREVIEW_ERROR']).then(function (translations) {
       if (vm.canPreview.indexOf(file.type) !== -1) {
         $uibModal.open({
           templateUrl: 'app/main/apps/file-manager/dialogs/preview-file/preview-file.html',
@@ -348,22 +361,40 @@
         });
       } else {
         Lobibox.notify('error', {
-          msg: "Preview is not available for this file type"
+          msg: translations['FILE_MANAGER.GLOBAL.PREVIEW_ERROR']
         });
       }
+      })
     }
 
     function showDeleteDialog(file) {
-      Lobibox.confirm({
-        title: 'Deleting "' + file.name + '"',
-        msg: "Are you sure you want to delete this " + (file.type.toLowerCase() === 'folder' ? 'folder' : 'file' ) + "?",
-        callback: function (lobibox, btn) {
-          if (btn === 'yes') {
-            vm.files.splice(file.id, 1);
-            resetSelection();
+      $translate(['FILE_MANAGER.DELETE.DELETING', 'FILE_MANAGER.DELETE.MSG_SINGLE',
+        'FILE_MANAGER.DELETE.MSG_SINGLE_AFTER', 'FILE_MANAGER.DELETE.FOLDER', 'FILE_MANAGER.DELETE.FILE',
+        'FILE_MANAGER.GLOBAL.YES', 'FILE_MANAGER.GLOBAL.NO']).then(function (translations) {
+        Lobibox.confirm({
+          title: translations['FILE_MANAGER.DELETE.DELETING'] + ' "' + file.name + '"',
+          msg: translations['FILE_MANAGER.DELETE.MSG_SINGLE'] + (file.type.toLowerCase() === 'folder' ? translations['FILE_MANAGER.DELETE.FOLDER'] : translations['FILE_MANAGER.DELETE.FILE'] ) + "?",
+          buttons: {
+            yes: {
+              text: translations['FILE_MANAGER.GLOBAL.YES']
+            },
+            no: {
+              text: translations['FILE_MANAGER.GLOBAL.NO']
+            }
+          },
+          callback: function (lobibox, btn) {
+            if (btn === 'yes') {
+              vm.files.splice(file.id, 1);
+              resetSelection();
+              Lobibox.notify('success', {
+                msg: translations['FILE_MANAGER.DELETE.MSG_SINGLE_AFTER']
+              })
+            }
+
+            D
           }
-        }
-      });
+        });
+      })
     }
 
     function toggleAside(id) {

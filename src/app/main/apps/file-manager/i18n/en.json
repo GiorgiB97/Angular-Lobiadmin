@@ -1,6 +1,12 @@
 {
   "FILE_MANAGER": {
     "GLOBAL": {
+      "OK": "OK",
+      "CANCEL": "Cancel",
+      "YES" : "Yes",
+      "NO" : "No",
+      "PREVIEW_ERROR" : "Preview is not available for this file type",
+
       "MONTHS": "months",
       "MONTH": "month",
       "JANUARY": "January",
@@ -76,6 +82,27 @@
       "UPLOAD_FILE" : "Upload File",
       "UPLOAD_FOLDER" : "Upload Folder",
       "CREATE_FOLDER" : "Create Folder"
+    },
+    "CREATE_RENAME":{
+      "RENAME" : "Rename Folder",
+      "CREATE" : "Create Folder",
+      "ENTER" : "Type your folder name",
+      "FOLDER" : "Folder ",
+      "CREATE_MSG" : " has been successfully created"
+    },
+    "TAGS":{
+      "MANAGING_TAGS" : "Manage tags for",
+      "ENTER" : "Type your tag name and press"
+    },
+    "DELETE":{
+      "DELETING": "Deleting ",
+      "FILES": " files",
+      "MSG_MULTI" : "Are you sure you want to delete selected files?",
+      "MSG_SINGLE" : "Are you sure you want to delete ",
+      "MSG_MULTI_AFTER" : " files have been successfully deleted",
+      "MSG_SINGLE_AFTER" : " file has been successfully deleted",
+      "FOLDER": "folder",
+      "FILE": "file"
     }
   }
 }
