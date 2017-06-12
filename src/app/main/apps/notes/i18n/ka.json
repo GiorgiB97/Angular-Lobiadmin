@@ -1,0 +1,10 @@
+{
+  "NOTES": {
+    "TITLE": "Notes",
+
+    "DELETE_TITLE": "Note წაშლა",
+    "DELETE_MSG": "გსურთ წაშალოთ Note '",
+    "DELETE_YES": "დიახ",
+    "DELETE_NO": "არა"
+  }
+}

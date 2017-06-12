@@ -1,0 +1,25 @@
+<div class="note note-{{note.class}}" draggable="true">
+  <div class="control">
+    <button class="btn btn-default btn-icon pull-left" ng-click="note.pinned = !note.pinned">
+      <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+    </button>
+    <button class="btn btn-default btn-icon pull-right" ng-click="vm.deleteNote($index)">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+    <button class="btn btn-default btn-icon pull-right" ng-click="vm.editNote($index)">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </button>
+    <button class="btn btn-default btn-icon pull-right" ng-click="vm.archiveNote($index)">
+      <i class="fa fa-archive" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div class="title">{{note.title}}</div>
+  <div class="body">{{note.body}}</div>
+
+  <div class="tags">
+    <ul class="list-inline">
+      <li ng-repeat="tag in note.tags"><span class="label label-default">{{tag}}</span></li>
+    </ul>
+  </div>
+</div>

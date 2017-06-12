@@ -13,7 +13,8 @@
       'app.calendar',
       'app.fileManager',
       'app.chat',
-      'app.contacts'
+      'app.contacts',
+      'app.notes'
     ]);
 
 })();

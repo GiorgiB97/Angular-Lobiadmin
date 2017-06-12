@@ -1,0 +1,10 @@
+{
+  "NOTES": {
+    "TITLE": "Notes",
+
+    "DELETE_TITLE": "Deleting Note",
+    "DELETE_MSG": "Do you want to delete note '",
+    "DELETE_YES": "Yes",
+    "DELETE_NO": "No"
+  }
+}

@@ -1,3 +1,106 @@
-#notes{
+#notes {
+  .top-menu {
+    height: 50px;
+    line-height: 42px;
+    width: 100%;
+    background-color: @brand-primary;
+    .menu {
+      display: table;
+      &-left {
+        width: 250px;
+        border-right: 1px solid rgba(0, 0, 0, 0.2);
+        float: left;
+        color: white;
+        display: table-cell;
+        vertical-align: middle;
+        .contacts-title {
+          line-height: 47px;
+          font-size: 27px;
+        }
+        > div {
+          display: inline-block;
+        }
+      }
+      &-right {
+        width: calc(%(~"100% - %s", 250px));
+        float: right;
+        color: white;
+        display: table-cell;
+        vertical-align: middle;
+        line-height: 50px;
+        > div {
+          display: inline-block;
+        }
+        .btn-icon {
+          i {
+            font-size: 20px;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .main {
+    padding: 25px;
+    .pinned, .all, .new {
+      .section-header {
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+      .notes{
+        column-count: 4;
+        .notes-wrapper{
+          float:none;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          vertical-align: baseline;
+          display: inline-block;
+          width: 100%;
+          .note {
+            position: relative;
+            padding: 30px 15px 45px 15px;
+            margin-bottom: 15px;
+            color: white;
+            .control {
+              width: 100%;
+              position: absolute;
+              display: none;
+              left: 0;
+              right: 0;
+              top: 0;
+              button i {
+                color: white;
+              }
+            }
+            .title {
+              font-size: 18px;
+              font-weight: bold;
+            }
+            .body{
 
+            }
+            .tags{
+              width:100%;
+              text-align: right;
+              position: absolute;
+              display: none;
+              left:0;
+              right: 0;
+              bottom: 0;
+            }
+            &:hover {
+              .control {
+                display: block;
+              }
+              .tags{
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
