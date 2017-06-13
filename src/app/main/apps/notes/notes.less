@@ -66,14 +66,8 @@
       }
       .notes{
         column-count: 3;
-        //very useful VVV
-        -webkit-column-break-inside:avoid;
-        -moz-column-break-inside:avoid;
-        -o-column-break-inside:avoid;
-        -ms-column-break-inside:avoid;
-        column-break-inside:avoid;
+        .column-break-inside(avoid);
         -webkit-backface-visibility:hidden;
-        //very useful ^^^
         @media screen and (max-width: @screen-sm-max){
           column-count: 2;
         }
@@ -94,8 +88,7 @@
             margin-bottom: 15px;
             color: white;
             transform: scale(0);
-            animation: 0.5s entityLoad;
-            animation-fill-mode: forwards;
+            animation: 0.5s entityLoad forwards;
             .control {
               width: 100%;
               position: absolute;

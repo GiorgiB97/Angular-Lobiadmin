@@ -2,7 +2,8 @@
 
   <li class="list-group-item user-item"
       ng-repeat="user in vm.usersArray | filter:  vm.searched !== '' ? {username: vm.searched} : {}"
-      ng-click="vm.openChat(user.chatId, user)" ng-class="{'selected':vm.selected === user}">
+      ng-click="vm.openChat(user.chatId, user)" ng-class="{'selected':vm.selected === user}"
+      ng-style="{'animation-delay':'{{$index}}00ms'}">
 
     <span class="user-unread badge" ng-hide="user.unread== null">{{user.unread}}</span>
 

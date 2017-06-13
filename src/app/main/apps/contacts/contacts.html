@@ -20,7 +20,7 @@
 
                 <div class="col-sm-3" ng-repeat="contact in contactRow">
 
-                    <div class="contact-card {{contact.id}}"
+                    <div class="contact-card {{contact.id}}" ng-style="{'animation-delay':'{{$index}}00ms'}"
                          ng-include="'app/main/apps/contacts/view/contact.html'"></div>
 
                 </div>
@@ -31,7 +31,7 @@
 
                 <div class="col-sm-3" ng-repeat="contact in vm.searchContactsResult | filter: {name : vm.filterBy}">
 
-                    <div class="contact-card {{contact.id}}"
+                    <div class="contact-card {{contact.id}}" ng-style="{'animation-delay':'{{$index}}00ms'}"
                          ng-include="'app/main/apps/contacts/view/contact.html'"></div>
 
                 </div>
