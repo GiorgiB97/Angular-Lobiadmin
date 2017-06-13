@@ -5,6 +5,15 @@
     "DELETE_TITLE": "Deleting Note",
     "DELETE_MSG": "Do you want to delete note '",
     "DELETE_YES": "Yes",
-    "DELETE_NO": "No"
+    "DELETE_NO": "No",
+
+    "EDIT_TITLE": "Edit Note",
+    "NOTE_TITLE": "Title",
+    "NOTE_BODY": "Body",
+    "NOTE_STYLE": "Style",
+    "NOTE_TAGS": "Tags",
+    "NOTE_OK": "Apply",
+    "NOTE_CANCEL": "Cancel",
+    "NOTE_REQUIRED_FIELD": "This field is required"
   }
 }

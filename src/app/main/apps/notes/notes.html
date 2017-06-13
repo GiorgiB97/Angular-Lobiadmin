@@ -26,8 +26,8 @@
     <div class="pinned">
       <p class="section-header">Pinned Notes</p>
       <div class="row notes">
-        <div ng-repeat="note in vm.notes | filter: {title:vm.searchValue}"
-             ng-if="note.pinned" class="col-md-3 notes-wrapper" ng-include="'app/main/apps/notes/view/note.html'"></div>
+        <div ng-repeat="note in vm.pinnedNotes | filter: {title:vm.searchValue}"
+             class="col-md-3 notes-wrapper" ng-include="'app/main/apps/notes/view/note.html'"></div>
       </div>
     </div>
 
@@ -35,7 +35,7 @@
       <p class="section-header">All Notes</p>
       <div class="row notes">
         <div ng-repeat="note in vm.notes | filter: {title:vm.searchValue}"
-             ng-if="!note.pinned" class="col-md-3 notes-wrapper" ng-include="'app/main/apps/notes/view/note.html'"></div>
+             class="col-md-3 notes-wrapper" ng-include="'app/main/apps/notes/view/note.html'"></div>
       </div>
     </div>
   </div>
