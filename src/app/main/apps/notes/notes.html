@@ -4,9 +4,17 @@
       <span class="contacts-title">{{'NOTES.TITLE' | translate}}</span>
     </div>
     <div class="menu-right text-right">
-      <button class="btn btn-default btn-lg btn-icon">
-        <i class="fa fa-search" aria-hidden="true"></i>
-      </button>
+      <div class="search">
+        <input type="text" class="form-control" placeholder="Type a search keyword"
+               ng-class="{ 'hidden': ! toggleSearch }"
+               ng-model="vm.searchValue">
+        <button class="btn btn-lg btn-icon btn-primary"
+                uib-tooltip="Search"
+                tooltip-append-to-body=true
+                ng-click="toggleSearch = ! toggleSearch;">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -18,14 +26,16 @@
     <div class="pinned">
       <p class="section-header">Pinned Notes</p>
       <div class="row notes">
-        <div ng-repeat="note in vm.notes" ng-if="note.pinned" class="col-md-3 notes-wrapper" ng-include="'app/main/apps/notes/view/note.html'"></div>
+        <div ng-repeat="note in vm.notes | filter: {title:vm.searchValue}"
+             ng-if="note.pinned" class="col-md-3 notes-wrapper" ng-include="'app/main/apps/notes/view/note.html'"></div>
       </div>
     </div>
 
     <div class="all">
       <p class="section-header">All Notes</p>
       <div class="row notes">
-        <div ng-repeat="note in vm.notes" ng-if="!note.pinned" class="col-md-3 notes-wrapper" ng-include="'app/main/apps/notes/view/note.html'"></div>
+        <div ng-repeat="note in vm.notes | filter: {title:vm.searchValue}"
+             ng-if="!note.pinned" class="col-md-3 notes-wrapper" ng-include="'app/main/apps/notes/view/note.html'"></div>
       </div>
     </div>
   </div>

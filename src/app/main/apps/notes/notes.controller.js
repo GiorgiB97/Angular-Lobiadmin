@@ -11,6 +11,7 @@
 
     // Data
     vm.notes = Notes.data;
+    vm.searchValue = "";
 
     // Methods
     vm.addNote = addNote;
@@ -23,7 +24,6 @@
     ///////////
 
     function init() {
-      // $scope.$watch("vm.notes", function () {});
     }
 
     function addNote() {
