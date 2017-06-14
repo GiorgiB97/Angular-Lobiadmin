@@ -13,7 +13,7 @@
     var vm = this;
     // variables
     vm.note = angular.copy(Note);
-    vm.noteStyles = ["primary", "success", "danger", "info", "warning", "gray", "cyan", "purple", "pink"];
+    vm.noteStyles = ["style-note-primary", "style-note-success", "style-note-danger", "style-note-info", "style-note-warning", "style-note-gray", "style-note-cyan", "style-note-purple", "style-note-pink"];
 
     // Methods
     vm.ok = ok;

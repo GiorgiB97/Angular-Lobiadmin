@@ -4,80 +4,80 @@
       "id": 9000939495,
       "title": "My First Note",
       "body": "This is my first note...",
-      "tags": ["primary", "first"],
-      "class": "primary",
+      "tags": ["style-note-gray", "first"],
+      "class": "style-note-gray",
       "pinned": true
     },
     {
       "id": 9000123456,
       "title": "Second Note",
       "body": "This is my second note with a little bit bigger body than the previous one to make it different ^^ It also has different 'style' ;)This is my second note with a little bit bigger body than the previous one to make it different ^^ It also has different 'style' ;)This is my second note with a little bit bigger body than the previous one to make it different ^^ It also has different 'style' ;)This is my second note with a little bit bigger body than the previous one to make it different ^^ It also has different 'style' ;)",
-      "tags": ["success", "second"],
-      "class": "success",
+      "tags": ["style-note-green", "second"],
+      "class": "style-note-green",
       "pinned": false
     },
     {
       "id": 9000123499,
       "title": "Third Note",
       "body": "This is my third note with a little bit bigger body than the previous one to make it different ^^ It also has different 'style' ;)This is my second note with a little bit bigger body than the previous one to make it different ^^ It also has different 'style' ;)This is my second note with a little bit bigger body than the previous one to make it different ^^ It also has different 'style' ;)This is my second note with a little bit bigger body than the previous one to make it different ^^ It also has different 'style' ;)",
-      "tags": ["success", "second"],
-      "class": "success",
+      "tags": ["style-note-orange", "second"],
+      "class": "style-note-orange",
       "pinned": false
     },
     {
       "id": 9000233223,
       "title": "Dummy Note 1",
       "body": "maxime perspiciatis recusandae sapiente sequi ullam! Delectus illum impedit nisi nulla quam quos repellendus soluta ut voluptatem?",
-      "tags": ["danger", "dummy"],
-      "class": "danger",
+      "tags": ["style-note-yellow", "dummy"],
+      "class": "style-note-yellow",
       "pinned": false
     },
     {
       "id": 9000545454,
       "title": "Dummy Note 2",
       "body": "maxime perspiciatis recusandae sapiente sequi ullam! Delectus illum impedit nisi nulla quam quos repellendus soluta ut voluptatem?",
-      "tags": ["info", "dummy"],
-      "class": "info",
+      "tags": ["style-note-cyan", "dummy"],
+      "class": "style-note-cyan",
       "pinned": false
     },
     {
       "id": 9000121212,
       "title": "Dummy Note 3",
       "body": "maxime perspiciatis recusandae sapiente sequi ullam! Delectus illum impedit nisi nulla quam quos repellendus soluta ut voluptatem?",
-      "tags": ["warning", "dummy"],
-      "class": "warning",
+      "tags": ["style-note-gray", "dummy"],
+      "class": "style-note-gray",
       "pinned": false
     },
     {
       "id": 9000232223,
       "title": "Dummy Note 4",
       "body": "maxime perspiciatis recusandae sapiente sequi ullam! Delectus illum impedit nisi nulla quam quos repellendus soluta ut voluptatem?",
-      "tags": ["gray", "dummy"],
-      "class": "gray",
+      "tags": ["style-note-green", "dummy"],
+      "class": "style-note-green",
       "pinned": false
     },
     {
       "id": 9000333223,
       "title": "Dummy Note 5",
       "body": "maxime perspiciatis recusandae sapiente sequi ullam! Delectus illum impedit nisi nulla quam quos repellendus soluta ut voluptatem?",
-      "tags": ["cyan", "dummy"],
-      "class": "cyan",
+      "tags": ["style-note-orange", "dummy"],
+      "class": "style-note-orange",
       "pinned": false
     },
     {
       "id": 9000233123,
       "title": "Dummy Note 6",
       "body": "maxime perspiciatis recusandae sapiente sequi ullam! Delectus illum impedit nisi nulla quam quos repellendus soluta ut voluptatem?",
-      "tags": ["purple", "dummy"],
-      "class": "purple",
+      "tags": ["style-note-yellow", "dummy"],
+      "class": "style-note-yellow",
       "pinned": false
     },
     {
       "id": 9000233312,
       "title": "Dummy Note 7",
       "body": "maxime perspiciatis recusandae sapiente sequi ullam! Delectus illum impedit nisi nulla quam quos repellendus soluta ut voluptatem?",
-      "tags": ["pink", "dummy"],
-      "class": "pink",
+      "tags": ["style-note-cyan", "dummy"],
+      "class": "style-note-cyan",
       "pinned": false
     }
   ]

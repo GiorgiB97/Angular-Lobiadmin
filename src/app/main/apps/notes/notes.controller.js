@@ -39,7 +39,7 @@
       console.log("Add new note");
     }
 
-    function editNote(note, id) {
+    function editNote(note, index) {
       $uibModal.open({
         templateUrl: 'app/main/apps/notes/dialogs/edit-note/edit-note.html',
         controller: 'EditNoteController',
@@ -50,15 +50,16 @@
         }
       }).result.then(function (ret) {
         if (note.pinned) {
-          vm.pinnedNotes[id] = ret.editedNote;
+          vm.pinnedNotes[index] = ret.editedNote;
         } else {
-          vm.notes[id] = ret.editedNote;
+          vm.notes[index] = ret.editedNote;
         }
       }, function () {
       });
     }
 
-    function deleteNote(note, id) {
+    function deleteNote($event, note, index) {
+      $event.stopPropagation();
       $translate(['NOTES.DELETE_TITLE', 'NOTES.DELETE_MSG', 'NOTES.DELETE_YES', 'NOTES.DELETE_NO']).then(function (translations) {
         var del = Lobibox.confirm({
           title: translations['NOTES.DELETE_TITLE'],
@@ -74,9 +75,9 @@
           callback: function ($this, type, ev) {
             if (type === "yes") {
               if (note.pinned) {
-                vm.pinnedNotes.splice(id, 1);
+                vm.pinnedNotes.splice(index, 1);
               } else {
-                vm.notes.splice(id, 1);
+                vm.notes.splice(index, 1);
               }
               $scope.$apply();
             }
@@ -86,18 +87,18 @@
       });
     }
 
-    function archiveNote(note, id) {
-      console.log("Archive note ", id);
+    function archiveNote(note, index) {
+      console.log("Archive note ", index);
     }
 
-    function pinNote(note, id) {
+    function pinNote(note, index) {
       if (note.pinned === true) {
         note.pinned = false;
         vm.notes.push(note);
-        vm.pinnedNotes.splice(id, 1);
+        vm.pinnedNotes.splice(index, 1);
       } else {
         note.pinned = true;
-        vm.notes.splice(id, 1);
+        vm.notes.splice(index, 1);
         vm.pinnedNotes.push(note);
       }
     }

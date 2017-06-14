@@ -1,13 +1,10 @@
 //LOOP
-.note- {
-  .for(@colors, {
-    &@{value} {
-      background-color: @@value;
-      border-color: darken(@@value, 5%);
-    }
-  });
+.style-{
+.for(@colors, { &@{value} {
+  background-color: lighten(@@value,10%);
+  border-color: darken(@@value, 5%);
+} });
 }
-
 
 // LOOPING MIXIN
 .for(@list, @code) {

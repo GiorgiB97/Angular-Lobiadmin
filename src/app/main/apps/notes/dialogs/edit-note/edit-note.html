@@ -1,5 +1,5 @@
 <div id="edit-note">
-  <div class="modal-body note-{{vm.note.class}}">
+  <div class="modal-body {{vm.note.class}}">
     <form class="noteForm" name="noteForm">
 <!--      <div class="form-group">
         <label class="control-label">{{'NOTES.NOTE_STYLE' | translate}}</label>
@@ -26,14 +26,14 @@
       <!--</div>-->
     </form>
   </div>
-  <div class="modal-footer note-{{vm.note.class}}">
+  <div class="modal-footer {{vm.note.class}}">
     <div class="class-options pull-left" uib-dropdown on-toggle="toggled(open)">
-      <button id="class-menu" class="btn btn-default btn-icon note-control pull-left" uib-dropdown-toggle>
+      <button id="class-menu" class="btn btn-icon note-control pull-left" uib-dropdown-toggle>
         <i class="fa fa-paint-brush" aria-hidden="true"></i>
       </button>
       <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="class-menu">
         <li ng-repeat="style in vm.noteStyles" >
-          <label class="btn btn-circle note-{{style}} text-white">
+          <label class="btn btn-circle {{style}} text-white">
             <input class="hidden" type="radio" ng-model="vm.note.class" value="{{style}}">
             <i class="fa fa-check" ng-show="vm.note.class === style"></i>
           </label>
