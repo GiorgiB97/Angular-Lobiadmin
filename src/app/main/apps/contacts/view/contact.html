@@ -1,5 +1,7 @@
 <div class="contact-options" uib-dropdown on-toggle="toggled(open)">
-    <i id="contact-menu" class="fa fa-cog" aria-hidden="true" uib-dropdown-toggle></i>
+    <button id="contact-menu" class="btn btn-default btn-icon pull-right" uib-dropdown-toggle>
+      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+    </button>
     <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="contact-menu">
         <li><a href><i class="fa fa-pencil" aria-hidden="true"></i>{{'CONTACTS.EDIT' | translate}}</a></li>
         <li><a href ng-click="vm.deleteContact(contact.id)"><i class="fa fa-trash" aria-hidden="true"></i>{{'CONTACTS.REMOVE' | translate}}</a></li>
