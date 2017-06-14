@@ -27,6 +27,7 @@
 
     function ok() {
       // @todo This code should be tested
+      console.log(vm.note);
       $uibModalInstance.close({
         editedNote: vm.note
       });

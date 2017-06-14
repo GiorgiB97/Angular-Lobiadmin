@@ -1,16 +1,11 @@
-<div class="note note-{{note.class}}" draggable="true" ng-style="{'animation-delay':'{{$index}}00ms'}">
+<div class="note note-{{note.class}}" draggable="true"
+     ng-click="vm.editNote(note, $index)" ng-style="{'animation-delay':'{{$index}}00ms'}">
   <div class="control">
     <button class="btn btn-default btn-icon pull-left" ng-click="vm.pinNote(note, $index)">
       <i class="fa fa-thumb-tack" aria-hidden="true"></i>
     </button>
     <button class="btn btn-default btn-icon pull-right" ng-click="vm.deleteNote(note, $index)">
       <i class="fa fa-times" aria-hidden="true"></i>
-    </button>
-    <button class="btn btn-default btn-icon pull-right" ng-click="vm.editNote(note, $index)">
-      <i class="fa fa-pencil" aria-hidden="true"></i>
-    </button>
-    <button class="btn btn-default btn-icon pull-right" ng-click="vm.archiveNote(note, $index)">
-      <i class="fa fa-archive" aria-hidden="true"></i>
     </button>
   </div>
 
