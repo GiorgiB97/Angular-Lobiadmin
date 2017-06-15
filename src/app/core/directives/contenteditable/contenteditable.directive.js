@@ -4,7 +4,6 @@
 (function () {
   'use strict';
 
-  console.log(123321);
   angular
     .module('app.core')
     // .controller('contenteditableController', contenteditableControllerFn)
