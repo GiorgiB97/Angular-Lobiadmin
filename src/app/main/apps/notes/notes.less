@@ -26,15 +26,15 @@
         user-select: none;
         .search {
           position: relative;
-          button{
+          button {
             position: absolute;
-            right:0;
-            top:-25px;
+            right: 0;
+            top: -25px;
           }
           input {
             position: absolute;
-            right:0;
-            top:-25px;
+            right: 0;
+            top: -25px;
             width: auto;
             display: inline-block;
             height: 40px;
@@ -66,18 +66,18 @@
         font-weight: bold;
         margin-top: 20px;
       }
-      .notes{
+      .notes {
         column-count: 3;
         .column-break-inside(avoid);
-        -webkit-backface-visibility:hidden;
-        @media screen and (max-width: @screen-sm-max){
+        -webkit-backface-visibility: hidden;
+        @media screen and (max-width: @screen-sm-max) {
           column-count: 2;
         }
-        @media screen and (max-width: @screen-xs-min){
+        @media screen and (max-width: @screen-xs-min) {
           column-count: 1;
         }
-        .notes-wrapper{
-          float:none;
+        .notes-wrapper {
+          float: none;
           margin: 0;
           padding: 0;
           border: 0;
@@ -98,27 +98,35 @@
               left: 0;
               right: 0;
               top: 0;
-              button i {
-                color: #292626;
+              .note-control {
+                i {
+                  color: #292626;
+                }
+                &.note-pinned {
+                  i{
+                    color:@note-blue;
+                    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+                  }
+                }
               }
             }
             .title {
               font-size: 18px;
               font-weight: bold;
             }
-            .body{
+            .body {
 
             }
-            .tags{
-              width:100%;
+            .tags {
+              width: 100%;
               text-align: right;
               position: absolute;
-              left:0;
+              left: 0;
               right: 0;
               bottom: 0;
-              .label-transparent{
-                color:#292626;
-                background-color: rgba(0,0,0,0.1);
+              .label-transparent {
+                color: #292626;
+                background-color: rgba(0, 0, 0, 0.1);
               }
             }
             &:hover {

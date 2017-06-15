@@ -1,10 +1,12 @@
 <div class="note {{note.class}}" draggable="true"
      ng-click="vm.editNote(note, $index)" ng-style="{'animation-delay':'{{$index}}00ms'}">
   <div class="control">
-    <button class="btn btn-default btn-icon pull-left" ng-click="vm.pinNote(note, $index)">
+    <button class="btn btn-default btn-icon note-control pull-left" uib-tooltip="Pin or Unpin"
+            ng-class="{'note-pinned':note.pinned}" ng-click="vm.pinCheck(note)">
       <i class="fa fa-thumb-tack" aria-hidden="true"></i>
     </button>
-    <button class="btn btn-default btn-icon pull-right" ng-click="vm.deleteNote($event, note, $index)">
+    <button class="btn btn-default btn-icon note-control pull-right" uib-tooltip="Delete Note"
+            ng-click="vm.deleteNote($event, note)">
       <i class="fa fa-times" aria-hidden="true"></i>
     </button>
   </div>

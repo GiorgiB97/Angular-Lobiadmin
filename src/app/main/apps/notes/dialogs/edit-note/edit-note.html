@@ -1,38 +1,45 @@
-<div id="edit-note">
-  <div class="modal-body {{vm.note.class}}">
+<div id="edit-note" class="{{vm.note.class}}">
+  <div class="modal-header">
+    <button class="btn btn-icon note-control pull-left"
+            ng-class="{'note-pinned':vm.note.pinned}" ng-click="vm.note.pinned = !vm.note.pinned"
+            uib-tooltip="Pin or Unpin">
+      <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="modal-body">
     <form class="noteForm" name="noteForm">
-<!--      <div class="form-group">
-        <label class="control-label">{{'NOTES.NOTE_STYLE' | translate}}</label>
-        <div class="btn-group btn-group-justified btn-group-event-style" data-toggle="buttons">
-          <label ng-repeat="style in vm.noteStyles" class="btn note-{{style}} text-white">
-            <input type="radio" ng-model="vm.note.class" value="{{style}}">
-            <i class="fa fa-check" ng-show="vm.note.class === style"></i>
-          </label>
-        </div>
-      </div>-->
+      <!--      <div class="form-group">
+              <label class="control-label">{{'NOTES.NOTE_STYLE' | translate}}</label>
+              <div class="btn-group btn-group-justified btn-group-event-style" data-toggle="buttons">
+                <label ng-repeat="style in vm.noteStyles" class="btn note-{{style}} text-white">
+                  <input type="radio" ng-model="vm.note.class" value="{{style}}">
+                  <i class="fa fa-check" ng-show="vm.note.class === style"></i>
+                </label>
+              </div>
+            </div>-->
 
       <div class="form-group" ng-class="{'has-error': noteForm.title.$touched && noteForm.title.$invalid}">
-        <input type="text" class="form-control title" name="title" ng-model="vm.note.title" placeholder="{{'NOTES.NOTE_TITLE' | translate}}" required>
+        <input type="text" class="form-control title" name="title" ng-model="vm.note.title"
+               placeholder="{{'NOTES.NOTE_TITLE' | translate}}" required>
         <div class="help-block" ng-messages="noteForm.title.$touched && noteForm.title.$error" role="alert"
              multiple>
           <p ng-message="required">{{'NOTES.NOTE_REQUIRED_FIELD' | translate}}</p>
         </div>
       </div>
 
-      <div class="form-control body" contenteditable="true" strip-br="true" ng-model="vm.note.body">{{vm.note.body}}</div>
+      <div class="form-control body" contenteditable="true" strip-br="true" ng-model="vm.note.body">{{vm.note.body}}
+      </div>
 
-      <!--<div class="form-group">-->
-        <!--<input class="tags" om-tagsinput ng-model="vm.note.tags" placeholder="{{'NOTES.NOTE_TAGS' | translate}}">-->
-      <!--</div>-->
+
     </form>
   </div>
-  <div class="modal-footer {{vm.note.class}}">
+  <div class="modal-footer">
     <div class="class-options pull-left" uib-dropdown on-toggle="toggled(open)">
-      <button id="class-menu" class="btn btn-icon note-control pull-left" uib-dropdown-toggle>
+      <button id="class-menu" class="btn btn-icon note-control pull-left" uib-dropdown-toggle  uib-tooltip="Note Style">
         <i class="fa fa-paint-brush" aria-hidden="true"></i>
       </button>
       <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="class-menu">
-        <li ng-repeat="style in vm.noteStyles" >
+        <li ng-repeat="style in vm.noteStyles">
           <label class="btn btn-circle {{style}} text-white">
             <input class="hidden" type="radio" ng-model="vm.note.class" value="{{style}}">
             <i class="fa fa-check" ng-show="vm.note.class === style"></i>
@@ -40,10 +47,21 @@
         </li>
       </ul>
     </div>
+
+    <div class="tag-options pull-left" uib-dropdown on-toggle="toggled(open)">
+      <button id="tag-menu" class="btn btn-icon note-control pull-left" uib-dropdown-toggle uib-tooltip="Manage Labels">
+        <i class="fa fa-tags" aria-hidden="true"></i>
+      </button>
+      <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="tag-menu" ng-click="$event.stopPropagation()">
+        <input class="tags" om-tagsinput ng-model="vm.note.tags">
+      </div>
+    </div>
+
     <button class="btn btn-pretty btn-primary modal-control" type="button" ng-click="vm.cancel()">
       {{'NOTES.NOTE_CANCEL' | translate}}
     </button>
-    <button class="btn btn-pretty btn-primary modal-control" type="button" ng-click="vm.ok()" ng-disabled="noteForm.$invalid">
+    <button class="btn btn-pretty btn-primary modal-control" type="button" ng-click="vm.ok()"
+            ng-disabled="noteForm.$invalid">
       {{'NOTES.NOTE_OK' | translate}}
     </button>
   </div>

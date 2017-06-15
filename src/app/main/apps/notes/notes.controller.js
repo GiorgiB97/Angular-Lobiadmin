@@ -19,7 +19,9 @@
     vm.editNote = editNote;
     vm.deleteNote = deleteNote;
     vm.archiveNote = archiveNote;
-    vm.pinNote = pinNote;
+    vm.pinCheck = pinCheck;
+    vm.pin = pin;
+    vm.unpin = unpin;
 
     init();
 
@@ -39,7 +41,7 @@
       console.log("Add new note");
     }
 
-    function editNote(note, index) {
+    function editNote(note) {
       $uibModal.open({
         templateUrl: 'app/main/apps/notes/dialogs/edit-note/edit-note.html',
         controller: 'EditNoteController',
@@ -49,16 +51,25 @@
           Note: note
         }
       }).result.then(function (ret) {
-        if (note.pinned) {
-          vm.pinnedNotes[index] = ret.editedNote;
+        if (note.pinned !== ret.editedNote.pinned) {
+          note = ret.editedNote;
+          if (note.pinned) {
+            unpin(note);
+          } else {
+            pin(note);
+          }
         } else {
-          vm.notes[index] = ret.editedNote;
+          if (note.pinned) {
+            vm.pinnedNotes[vm.pinnedNotes.indexOf(note)] = ret.editedNote;
+          } else {
+            vm.notes[vm.notes.indexOf(note)] = ret.editedNote;
+          }
         }
       }, function () {
       });
     }
 
-    function deleteNote($event, note, index) {
+    function deleteNote($event, note) {
       $event.stopPropagation();
       $translate(['NOTES.DELETE_TITLE', 'NOTES.DELETE_MSG', 'NOTES.DELETE_YES', 'NOTES.DELETE_NO']).then(function (translations) {
         var del = Lobibox.confirm({
@@ -75,9 +86,9 @@
           callback: function ($this, type, ev) {
             if (type === "yes") {
               if (note.pinned) {
-                vm.pinnedNotes.splice(index, 1);
+                vm.pinnedNotes.splice(vm.pinnedNotes.indexOf(note), 1);
               } else {
-                vm.notes.splice(index, 1);
+                vm.notes.splice(vm.notes.indexOf(note), 1);
               }
               $scope.$apply();
             }
@@ -87,21 +98,28 @@
       });
     }
 
-    function archiveNote(note, index) {
-      console.log("Archive note ", index);
+    function archiveNote(note) {
+      console.log("Archive note ", note.title);
     }
 
-    function pinNote(note, index) {
+    function pinCheck(note) {
       if (note.pinned === true) {
-        note.pinned = false;
-        vm.notes.push(note);
-        vm.pinnedNotes.splice(index, 1);
+        pin(note);
       } else {
-        note.pinned = true;
-        vm.notes.splice(index, 1);
-        vm.pinnedNotes.push(note);
+        unpin(note);
       }
     }
 
+    function pin(note) {
+      note.pinned = false;
+      vm.notes.push(note);
+      vm.pinnedNotes.splice(vm.pinnedNotes.indexOf(note), 1);
+    }
+
+    function unpin(note) {
+      note.pinned = true;
+      vm.notes.splice(vm.notes.indexOf(note), 1);
+      vm.pinnedNotes.push(note);
+    }
   }
 })();

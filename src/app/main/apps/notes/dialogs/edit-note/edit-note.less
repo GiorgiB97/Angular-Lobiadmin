@@ -1,5 +1,21 @@
 #edit-note{
+  .modal-header{
+    border:0;
+    background: transparent;
+    .note-control{
+      i{
+        color:#292626;
+      }
+      &.note-pinned{
+        background-color: rgba(255,255,255,0.8);
+        i{
+          color:@note-blue;
+        }
+      }
+    }
+  }
   .modal-body{
+    background: transparent;
     .noteForm{
       .title{
         background: transparent;
@@ -22,6 +38,7 @@
     }
   }
   .modal-footer{
+    background: transparent;
     border: 0;
     .modal-control{
       font-weight: bold;
